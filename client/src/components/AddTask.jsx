@@ -4,15 +4,12 @@ import Button from "./Button";
 const AddTask = ({ addTask }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
-  const [id, setId] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
-  const count = 0;
+  const isComplete = true;
+  const count = 10;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setId(count + 1);
-    setIsComplete(true);
-    addTask({ id: id, text: text, day: day, isComplete: isComplete });
+    addTask({ id: count++, text: text, day: day, isComplete: isComplete });
     setText("");
     setDay("");
   };
