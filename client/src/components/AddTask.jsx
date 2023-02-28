@@ -5,11 +5,14 @@ const AddTask = ({ addTask }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const isComplete = true;
-  const count = 10;
+  const count = () => {
+    let num=0;
+    return num++;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask({ id: count++, text: text, day: day, isComplete: isComplete });
+    addTask({ id: count(), text: text, day: day, isComplete: isComplete });
     setText("");
     setDay("");
   };
