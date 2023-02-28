@@ -13,7 +13,7 @@ const Home = () => {
     const { data } = await axios.get(`${url}/tasks`);
     setTask(data.tasks);
   };
-  
+
   useEffect(() => {
     getAllTasks();
     // eslint-disable-next-line
@@ -23,8 +23,8 @@ const Home = () => {
     getAllTasks();
   };
 
-  const addTask = async (id, newTask) => {
-    await axios.post(`${url}/task/${id}`, newTask);
+  const addTask = async (newTask) => {
+    await axios.post(`${url}/task`, newTask);
     getAllTasks();
   };
 
