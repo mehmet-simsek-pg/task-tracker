@@ -2,11 +2,18 @@
 Task Tracker App created with MERN Stack.
 
 The following technologies were used in this 
-project = () => 
+<br/>
+project = () =>
+<br/>
 {
+<br/>
   frontend : ReactJS,
+  <br/>
   backend: Nodejs, Expressjs,
+  <br/>
   database: MongoDB
+  <br/>
 }
+<br/>
 
-Deployed webpage => https://tast-tracker-app.netlify.app/
+export default project = https://tast-tracker-app.netlify.app/
