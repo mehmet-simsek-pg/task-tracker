@@ -1,8 +1,13 @@
 import { FaTimesCircle } from "react-icons/fa";
+import axios from "axios";
 
-const Task = ({ task, setTask }) => {
-  const deleteTask = (id) => {
-    setTask(task.filter((index) => index.id !== id));
+const TaskList = ({ task, getTask, setTask }) => {
+
+  const url = process.env.REACT_APP_URL;
+  
+  const deleteTask = async (id) => {
+    await axios.delete(`${url}${id}/`);
+    getTask();
   };
   return (
     <div>
@@ -36,4 +41,4 @@ const Task = ({ task, setTask }) => {
   );
 };
 
-export default Task;
+export default TaskList;

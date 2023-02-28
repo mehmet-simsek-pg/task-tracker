@@ -1,14 +1,20 @@
 import { useState } from "react";
 import Button from "./Button";
 
-const AddTask = ({ task, setTask }) => {
+const AddTask = ({ addTask }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
+  const [id, setId] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+  const count = 0;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = task.length+1;
-    setTask([...task, { id: id, text: text, day: day, isComplete: false }]);
+    setId(count + 1);
+    setIsComplete(true);
+    addTask({ id: id, text: text, day: day, isComplete: isComplete });
+    setText("");
+    setDay("");
   };
 
   const [buttonData, setButtonData] = useState({
@@ -36,7 +42,7 @@ const AddTask = ({ task, setTask }) => {
               id="text"
               type="text"
               name="text"
-              value={task.text}
+              value={text}
               placeholder="Add Task"
               onChange={(e) => {
                 setText(e.target.value);
@@ -49,7 +55,7 @@ const AddTask = ({ task, setTask }) => {
               id="day"
               type="date"
               name="day"
-              value={task.day}
+              value={day}
               placeholder="Add Task"
               onChange={(e) => {
                 setDay(e.target.value);
