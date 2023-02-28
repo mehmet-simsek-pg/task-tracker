@@ -4,17 +4,16 @@ import Button from "./Button";
 const AddTask = ({ addTask }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
-  const isComplete = true;
-  const count = () => {
-    let num=0;
-    return num++;
-  }
+  const isComplete = false;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask({ id: count(), text: text, day: day, isComplete: isComplete });
-    setText("");
-    setDay("");
+    addTask({
+      id: Math.floor(Math.random() * 10),
+      text: text,
+      day: day,
+      isComplete: isComplete,
+    });
   };
 
   const [buttonData, setButtonData] = useState({
