@@ -13,7 +13,11 @@ const Home = () => {
     const { data } = await axios.get(`${url}/tasks`);
     setTask(data.tasks);
   };
-
+  
+  useEffect(() => {
+    getAllTasks();
+    // eslint-disable-next-line
+  }, []);
   const deleteTask = async (id) => {
     await axios.delete(`${url}/task/${id}`);
     getAllTasks();
@@ -24,15 +28,11 @@ const Home = () => {
     getAllTasks();
   };
 
-  useEffect(() => {
-    getAllTasks();
-  }, []);
-
   console.log(task);
   return (
     <div>
       <AddTask addTask={addTask} />
-      <TaskList task={task} deleteTask={deleteTask} setTask={setTask}/>
+      <TaskList task={task} deleteTask={deleteTask} setTask={setTask} />
     </div>
   );
 };
